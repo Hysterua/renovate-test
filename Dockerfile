@@ -1,2 +1,2 @@
-FROM python:3.12-bullseye@sha256:feacfbefcc4120735e13cb3e22fb80aad979ad277b391a387f64e48081d785af
-FROM python:3.12-slim-bullseye@sha256:10f3aaab98db50cba827d3b33a91f39dc9ec2d02ca9b85cbc5008220d07b17f3
+FROM python:3.13-bullseye@sha256:99979462fff2e165877ea3d7f341988d36bce0e9b3f21c00574141ca5b53fe14
+FROM python:3.13-slim-bullseye@sha256:f6848854ba33a8ea0f93999b187aec829774d975b266a5535e84c851a8a44514
