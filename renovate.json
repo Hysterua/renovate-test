@@ -1,5 +1,7 @@
 {
   "pinDigest": true,
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
   "customManagers": [
     {
       "customType": "regex",
