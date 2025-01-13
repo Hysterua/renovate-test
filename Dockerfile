@@ -1,1 +1,1 @@
-FROM python:3.11-bullseye
+FROM python:3.12-bullseye@sha256:asdasdadasda

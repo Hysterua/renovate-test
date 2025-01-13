@@ -1,25 +1,22 @@
 {
-    "regexManagers": [
-      {
-        "fileMatch": ["^Dockerfile$"],
-        "matchStrings": [
-          "FROM python:(?<currentValue>\\d+\\.\\d+)-(?<osVersion>[a-z]+)"
-        ],
-        "depNameTemplate": "python",
-        "datasourceTemplate": "docker",
-        "versioningTemplate": "python",
-        "extractVersionTemplate": "{{currentValue}}"
-      },
-      {
-        "fileMatch": ["^Dockerfile$"],
-        "matchStrings": [
-          "FROM python:\\d+\\.\\d+-(?<currentValue>[a-z]+)"
-        ],
-        "depNameTemplate": "debian",
-        "datasourceTemplate": "docker",
-        "versioningTemplate": "docker",
-        "extractVersionTemplate": "{{currentValue}}"
-      }
-    ]
-  }
-  
+  "pinDigest": true,
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "debian",
+      "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "FROM python:3.11-(?<currentValue>.+)@(?<currentDigest>sha256:.+)"
+      ],
+      "depNameTemplate": "python",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "debian"
+    }
+  ]
+}
