@@ -25,6 +25,16 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
+        "FROM (?<depName>.*):(?<verCompatibility>.*)-(?<currentValue>\\D+)@(?<currentDigest>sha256:.+)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "debian",
+      "extractVersionTemplate": "^{{verCompatibility}}-(?<version>[a-z]+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
         "FROM (?<depName>.*):(?<currentValue>.+)-(?<verCompatibility>.*)@(?<currentDigest>sha256:.+)"
       ],
       "datasourceTemplate": "docker",
