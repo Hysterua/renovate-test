@@ -1,0 +1,25 @@
+{
+    "regexManagers": [
+      {
+        "fileMatch": ["^Dockerfile$"],
+        "matchStrings": [
+          "FROM python:(?<currentValue>\\d+\\.\\d+)-(?<osVersion>[a-z]+)"
+        ],
+        "depNameTemplate": "python",
+        "datasourceTemplate": "docker",
+        "versioningTemplate": "python",
+        "extractVersionTemplate": "{{currentValue}}"
+      },
+      {
+        "fileMatch": ["^Dockerfile$"],
+        "matchStrings": [
+          "FROM python:\\d+\\.\\d+-(?<currentValue>[a-z]+)"
+        ],
+        "depNameTemplate": "debian",
+        "datasourceTemplate": "docker",
+        "versioningTemplate": "docker",
+        "extractVersionTemplate": "{{currentValue}}"
+      }
+    ]
+  }
+  
