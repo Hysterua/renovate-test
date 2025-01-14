@@ -12,6 +12,17 @@
   ],
   "customManagers": [
     {
+      "description": "Ensures python version is up to date",
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "FROM (?<depName>.*):(?<currentValue>\\d+\\.\\d+)-(?<verCompatibility>.*)@(?<currentDigest>sha256:.+)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "python",
+      "extractVersionTemplate": "^(?<version>.+)-{{verCompatibility}}$"
+    },
+    {
       "description": "Ensures alpine base image is up to date",
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
@@ -31,17 +42,6 @@
       "datasourceTemplate": "docker",
       "versioningTemplate": "debian",
       "extractVersionTemplate": "^{{verCompatibility}}-(?<version>[a-z]+)$"
-    },
-    {
-      "description": "Ensures python version is up to date",
-      "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "FROM (?<depName>.*):(?<currentValue>\\d+\\.\\d+)-(?<verCompatibility>.*)@(?<currentDigest>sha256:.+)"
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "python",
-      "extractVersionTemplate": "^(?<version>.+)-{{verCompatibility}}$"
     }
   ]
 }
