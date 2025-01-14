@@ -12,16 +12,17 @@
   ],
   "customManagers": [
     {
+      "description": "Ensures alpine base image is up to date",
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM (?<depName>.*):(?<verCompatibility>.*)-(?<currentValue>.+)@(?<currentDigest>sha256:.+)"
+        "FROM (?<depName>.*):(?<currentValue>.*-alpine\\d+.\\d+)@(?<currentDigest>sha256:.+)"
       ],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "debian",
-      "extractVersionTemplate": "^{{verCompatibility}}-(?<version>[a-z]+)$"
+      "versioningTemplate": "regex:^(?<compatibility>.*-alpine)(?<major>\\d)\\.(?<minor>\\d+)"
     },
     {
+      "description": "Ensures debian base image is up to date",
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
@@ -32,10 +33,11 @@
       "extractVersionTemplate": "^{{verCompatibility}}-(?<version>[a-z]+)$"
     },
     {
+      "description": "Ensures python version is up to date",
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM (?<depName>.*):(?<currentValue>.+)-(?<verCompatibility>.*)@(?<currentDigest>sha256:.+)"
+        "FROM (?<depName>.*):(?<currentValue>\\d+\\.\\d+)-(?<verCompatibility>.*)@(?<currentDigest>sha256:.+)"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "python",
