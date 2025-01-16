@@ -1,3 +1,7 @@
-FROM python:3.13-bullseye@sha256:be19bb00d74c924e286640ed4f4d285444f1db00eb782ecc0182f33c2800c744
-FROM python:3.13-slim-bullseye@sha256:4cbe85156e6744a7a9dbe637be16a69b961da47c931b6ee11c1f74eab51476ae
-FROM python:3.13-alpine3.20@sha256:9ab3b6ef4afb7582afaa84e97d40a36f192595bb0578561c282cecc22a45de49
+FROM python:3.11-bullseye@sha256:testsha
+FROM python:3.11-slim-bullseye@sha256:testsha
+FROM python:3.12-bullseye@sha256:testsha
+FROM python:3.12-slim-bullseye@sha256:testsha
+FROM python:3.13-bullseye@sha256:testsha
+FROM python:3.13-slim-bullseye@sha256:testsha
+FROM python:3.13-alpine3.20@sha256:testsha
