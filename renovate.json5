@@ -1,20 +1,41 @@
 {
   "pinDigest": true,
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 0,
-  "recreateWhen": "always",
   "ignoreTests": true,
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["digest"],
-      "automerge": true
-    }
-  ],
+  // "dockerfile": {
+  //   "ignorePaths": ["**/vNext/**"]
+  // },
+  // "packageRules": [
+  //   {
+  //     "updateTypes": ["patch","digest"],
+  //     "groupName": "patch + digest",
+  //     "enabled": true,
+  //     "automerge": true
+  //   },
+  //   {
+  //     "paths": ["vNext/**"],
+  //     "updateTypes": ["patch", "digest"],
+  //     "enabled": false,
+  //     "automerge": false
+  //   },
+
+
+  //   {
+  //     "updateTypes": ["major","minor"],
+  //     "enabled": false,
+  //     "automerge": false
+  //   },
+  //   {
+  //     "paths": ["vNext/**"],
+  //     "updateTypes": ["major","minor"],
+  //     "enabled": true,
+  //     "automerge": false
+  //   },
+  // ],
   "customManagers": [
     {
       "description": "Ensures python version is up to date",
       "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
+      "fileMatch": ["^vNext/Dockerfile$"],
       "matchStrings": [
         "FROM (?<depName>.*):(?<currentValue>\\d+\\.\\d+)-(?<verCompatibility>.*)@(?<currentDigest>sha256:.+)"
       ],
@@ -25,7 +46,7 @@
     {
       "description": "Ensures alpine base image is up to date",
       "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
+      "fileMatch": ["^vNext/Dockerfile$"],
       "matchStrings": [
         "FROM (?<depName>.*):(?<currentValue>.*-alpine\\d+.\\d+)@(?<currentDigest>sha256:.+)"
       ],
@@ -35,7 +56,7 @@
     {
       "description": "Ensures debian base image is up to date",
       "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
+      "fileMatch": ["^vNext/Dockerfile$"],
       "matchStrings": [
         "FROM (?<depName>.*):(?<verCompatibility>.*)-(?<currentValue>\\D+)@(?<currentDigest>sha256:.+)"
       ],
