@@ -1,36 +1,36 @@
 {
   "pinDigest": true,
   "ignoreTests": true,
-  // "dockerfile": {
-  //   "ignorePaths": ["**/vNext/**"]
-  // },
-  // "packageRules": [
-  //   {
-  //     "updateTypes": ["patch","digest"],
-  //     "groupName": "patch + digest",
-  //     "enabled": true,
-  //     "automerge": true
-  //   },
-  //   {
-  //     "paths": ["vNext/**"],
-  //     "updateTypes": ["patch", "digest"],
-  //     "enabled": false,
-  //     "automerge": false
-  //   },
+  "dockerfile": {
+    "ignorePaths": ["**/vNext/**"]
+  },
+  "packageRules": [
+    {
+      "updateTypes": ["patch","digest"],
+      "groupName": "patch + digest",
+      "enabled": true,
+      "automerge": true
+    },
+    {
+      "paths": ["vNext/**"],
+      "updateTypes": ["patch", "digest"],
+      "enabled": false,
+      "automerge": false
+    },
 
 
-  //   {
-  //     "updateTypes": ["major","minor"],
-  //     "enabled": false,
-  //     "automerge": false
-  //   },
-  //   {
-  //     "paths": ["vNext/**"],
-  //     "updateTypes": ["major","minor"],
-  //     "enabled": true,
-  //     "automerge": false
-  //   },
-  // ],
+    {
+      "updateTypes": ["major","minor"],
+      "enabled": false,
+      "automerge": false
+    },
+    {
+      "paths": ["vNext/**"],
+      "updateTypes": ["major","minor"],
+      "enabled": true,
+      "automerge": false
+    },
+  ],
   "customManagers": [
     {
       "description": "Ensures python version is up to date",
